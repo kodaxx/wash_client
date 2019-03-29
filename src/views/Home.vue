@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import router from '../router'
+
 const axios = require("axios")
 export default {
   name: 'Home',

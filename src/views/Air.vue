@@ -50,7 +50,7 @@ export default {
 
   created () {
     this.vend()
-  }
+  },
 
   computed: {
     minutes: function() {
