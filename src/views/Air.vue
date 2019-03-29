@@ -1,21 +1,9 @@
 <template>
-<div class="container">
-  <div id="timer">
-    <span id="minutes">{{ minutes }}</span>
-    <span id="middle">:</span>
-    <span id="seconds">{{ seconds }}</span>
+  <div>
+    <video autoplay muted loop id="video">
+      <source src="../assets/gotomoto_menu1.mp4" type="video/mp4">
+    </video>
   </div>
-  <div id="buttons">
-    <button id="start" class="button green" v-if="!timer" @click="startTimer">
-      GO
-    </button>
-    <button id="reset" class="button red" v-if="resetButton" @click="resetTimer">
-      <!-- <i class="fas fa-undo"></i> -->
-      X
-    </button>
-  </div>
-
-</div>
 </template>
 
 <script>
@@ -86,48 +74,13 @@ export default {
 }
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  /* background: #283E4C; */
-  background: rgb(81,190,255);
-  background: linear-gradient(56deg, rgba(81,190,255,1) 0%, rgba(20,121,180,0.861782212885154) 50%, rgba(82,115,208,1) 100%);
-}
-
-.button {
-  margin-top: 1vh;
-  color: #fff;
-  background: #55A747;
-  border: none;
-  font-size: 3vw;
-  width: 10vw;
-  height: 10vw;
-  border-radius: 50%;
-  box-shadow: 4px 2px #31383d;
-}
-
-.green {
-  background: #55A747;
-}
-
-.red {
-  background: #DC3C45;
-}
-
-#buttons {
-  position: relative;
-  z-index: 2;
-}
-
-#timer {
-  position: relative;
-  z-index: 0;
-  top: 2.5%;
-  font-size: 20vw;
-  color: #fff;
-  text-shadow: 4px 4px 10px #31383d;
+#video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 100%;
 }
 </style>
