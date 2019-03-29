@@ -1,8 +1,6 @@
 <template>
   <div>
-    <video autoplay muted loop id="video">
-      <source src="../assets/gotomoto_menu1.mp4" type="video/mp4">
-    </video>
+    <h2>FREE AIR</h2>
   </div>
 </template>
 
@@ -49,6 +47,10 @@ export default {
       }
     }
   },
+
+  created () {
+    this.vend()
+  }
 
   computed: {
     minutes: function() {

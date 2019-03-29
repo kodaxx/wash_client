@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-  <div class="inner" tabindex="0" @keydown="keyDown" >
+  <div class="inner">
      <transition name="fade">
       <router-view />
     </transition>
@@ -27,31 +27,6 @@ export default {
   },
 
   methods: {
-    keyDown: function (event) {
-      switch (event.keyCode) {
-        case 49:
-          this.navbar(1)
-          break;
-        case 50:
-          this.navbar(2)
-          break;
-        case 51:
-          this.navbar(3)
-          break;
-        case 52:
-          this.navbar(4)
-          break;
-      }
-      console.log(event.keyCode)
-    },
-
-    navbar: function (id) {
-      console.log('keypress!')
-      if (id !== this.activeId) {
-        this.activeId = id
-        router.push(`/${this.activeId}`)
-      }
-    }
   }
 }
 </script>
