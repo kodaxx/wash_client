@@ -1,77 +1,34 @@
 <template>
-  <div>
-    <h2>FREE AIR</h2>
+  <div ref="page" tabindex="0" @keydown="keyDown">
+    <video autoplay muted loop id="video">
+      <source src="../assets/gotomoto_menu_airscreen2.mp4" type="video/mp4">
+    </video>
   </div>
 </template>
 
 <script>
+import router from '../router'
 const axios = require("axios")
+
 export default {
   name: 'Air',
 
-  data() {
-    return {
-      timer: null,
-      totalTime: (3 * 60),
-      resetButton: false
-    }
-  },
-
   methods: {
-    startTimer: function() {
-      this.timer = setInterval(() => this.countdown(), 1000)
-      this.resetButton = true
-      console.log("start air")
-      this.vend()
-
-    },
     vend: function () {
         axios.get("http://localhost:3000/relay1")
     },
-    resetTimer: function() {
-      this.totalTime = (3 * 60)
-      clearInterval(this.timer)
-      this.timer = null;
-      this.resetButton = false
-      console.log("stop air")
-    },
-    padTime: function(time) {
-      return (time < 10 ? '0' : '') + time
-    },
-    countdown: function() {
-      if (this.totalTime >= 1) {
-        this.totalTime--
-      } else {
-        this.totalTime = 0
-        this.resetTimer()
+
+    keyDown: function (event) {
+      if (event.keyCode === 49) {
+        router.push('/')
       }
     }
+
   },
 
-  created () {
+  mounted () {
     this.vend()
-  },
-
-  computed: {
-    minutes: function() {
-      const minutes = Math.floor(this.totalTime / 60)
-      return this.padTime(minutes)
-    },
-    seconds: function() {
-      const seconds = this.totalTime - (this.minutes * 60)
-      return this.padTime(seconds)
-    },
-    end: function () {
-      if (this.totalTime === 0) {
-        console.log("stop air")
-      }
-    }
-  },
-
-  beforeDestroy() {
-    if (this.resetButton === true) {
-      this.resetTimer()
-    }
+    this.$refs.page.focus()
   }
 }
 </script>

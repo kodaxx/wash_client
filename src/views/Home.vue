@@ -1,7 +1,7 @@
 <template>
-  <div tabindex="0" @keydown="keyDown">
+  <div ref="page" tabindex="0" @keydown="keyDown">
     <video autoplay muted loop id="video">
-      <source src="../assets/gotomoto_menu1.mp4" type="video/mp4">
+      <source src="../assets/gotomoto_menu_homescreen2.mp4" type="video/mp4">
     </video>
   </div>
 </template>
@@ -9,44 +9,31 @@
 <script>
 import router from '../router'
 
-const axios = require("axios")
 export default {
   name: 'Home',
-
-  data() {
-    return {
-      timer: null,
-      totalTime: (3 * 60),
-      resetButton: false
-    }
-  },
 
   methods: {
     keyDown: function (event) {
       switch (event.keyCode) {
         case 49:
-          this.navbar(1)
+          router.push('/air')
           break;
         case 50:
-          this.navbar(2)
+          router.push('/wash')
           break;
         case 51:
-          this.navbar(3)
+          router.push('/shop')
           break;
         case 52:
-          this.navbar(4)
+          router.push('/map')
           break;
       }
-      console.log(event.keyCode)
-    },
-
-    navbar: function (id) {
-      console.log('keypress!')
-      if (id !== this.activeId) {
-        this.activeId = id
-        router.push(`/${this.activeId}`)
-      }
     }
+
+  },
+
+  mounted () {
+    this.$refs.page.focus()
   }
 }
 </script>

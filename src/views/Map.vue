@@ -1,7 +1,7 @@
 <template>
   <div>
     <video autoplay muted loop id="video">
-      <source src="../assets/gotomoto_menu1.mp4" type="video/mp4">
+      <source src="../assets/gotomoto_menu_homescreen2.mp4" type="video/mp4">
     </video>
   </div>
 </template>

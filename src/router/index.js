@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from '@/views/Home'
 import Air from '@/views/Air'
 import Wash from '@/views/Wash'
+import Wash1 from '@/views/Wash1'
+import Pay from '@/views/Pay'
 import Shop from '@/views/Shop'
 import Map from '@/views/Map'
 
@@ -11,9 +13,11 @@ Vue.use(Router)
 export default new Router({
   routes: [
     { path: '/', component: Home },
-    { path: '/1', component: Air },
-    { path: '/2', component: Wash },
-    { path: '/3', component: Shop },
-    { path: '/4', component: Map }
+    { path: '/air', component: Air },
+    { path: '/wash', component: Wash },
+    { path: '/wash1', component: Wash1 },
+    { path: '/pay', component: Pay },
+    { path: '/shop', component: Shop },
+    { path: '/map', component: Map }
   ]
 })
