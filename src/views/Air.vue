@@ -19,6 +19,9 @@ export default {
     },
 
     keyDown: function (event) {
+      let audio = new Audio(require('../assets/upshift.mp3'))
+      audio.play()
+
       if (event.keyCode === 49) {
         router.push('/')
       }
