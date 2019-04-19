@@ -15,7 +15,7 @@ export default {
 
   methods: {
     vend: function () {
-        axios.get("http://localhost:3000/relay1")
+        axios.get("http://localhost:3000/relay?id=0&time=180")
     },
 
     keyDown: function (event) {
