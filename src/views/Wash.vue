@@ -14,9 +14,6 @@ export default {
   name: 'Wash',
 
   methods: {
-    vend: function () {
-        axios.get("http://localhost:3000/relay1")
-    },
 
     keyDown: function (event) {
       let audio = new Audio(require('../assets/upshift.mp3'))
@@ -41,7 +38,6 @@ export default {
   },
 
   mounted () {
-    this.vend()
     this.$refs.page.focus()
   }
 }

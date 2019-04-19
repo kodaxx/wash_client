@@ -14,9 +14,20 @@ export default {
   name: 'Pay',
 
   methods: {
+
     vend: function () {
-        axios.get("http://localhost:3000/relay1")
+      // setTimeout(function, milliseconds, param1, param2, ...)
+      this.degrease()
+      setTimeout(this.glass, 302000)
     },
+
+    degrease: function () {
+      axios.get('http://localhost:3000/relay?id=1&time=300')
+    },
+
+    glass: function () {
+      axios.get('http://localhost:3000/relay?id=2&time=300')
+    }
 
     keyDown: function (event) {
       let audio = new Audio(require('../assets/upshift.mp3'))
@@ -26,13 +37,15 @@ export default {
         case 49:
           router.push('/')
           break;
+        case 53:
+          this.vend()
+          break;
       }
     }
 
   },
 
   mounted () {
-    this.vend()
     this.$refs.page.focus()
   }
 }
