@@ -8,15 +8,11 @@
 
 <script>
 import router from '../router'
-const axios = require("axios")
 
 export default {
   name: 'Wash1',
 
   methods: {
-    vend: function () {
-        axios.get("http://localhost:3000/relay?id=1&time=300")
-    },
 
     keyDown: function (event) {
       let audio = new Audio(require('../assets/upshift.mp3'))
@@ -35,7 +31,6 @@ export default {
   },
 
   mounted () {
-    this.vend()
     this.$refs.page.focus()
   }
 }
