@@ -1,7 +1,7 @@
 <template>
   <div ref="page" tabindex="0" @keydown="keyDown">
-    <video autoplay muted loop id="video">
-      <source src="../assets/gotomoto_menu_wash_screen_Card_reader.mp4" type="video/mp4">
+    <video autoplay loop id="video">
+      <source src="../assets/wyo2017.mp4" type="video/mp4">
     </video>
   </div>
 </template>
@@ -11,27 +11,36 @@ import router from '../router'
 const axios = require("axios")
 
 export default {
-  name: 'Pay',
+  name: 'Advert',
 
   methods: {
+    vend: function () {
+      // setTimeout(function, milliseconds, param1, param2, ...)
+      this.degrease()
+      setTimeout(this.glass, 302000)
+    },
+
+    degrease: function () {
+      axios.get('http://localhost:3000/relay?id=1&time=300')
+    },
+
+    glass: function () {
+      axios.get('http://localhost:3000/relay?id=2&time=300')
+    },
 
     keyDown: function (event) {
       let audio = new Audio(require('../assets/upshift.mp3'))
       audio.play()
 
-      switch (event.keyCode) {
-        case 49:
-          router.push('/')
-          break;
-        case 53:
-          router.push('/ad')
-          break;
+      if (event.keyCode === 49) {
+        router.push('/')
       }
     }
 
   },
 
   mounted () {
+    this.vend()
     this.$refs.page.focus()
   }
 }
