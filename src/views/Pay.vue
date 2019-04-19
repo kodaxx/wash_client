@@ -27,7 +27,7 @@ export default {
 
     glass: function () {
       axios.get('http://localhost:3000/relay?id=2&time=300')
-    }
+    },
 
     keyDown: function (event) {
       let audio = new Audio(require('../assets/upshift.mp3'))
